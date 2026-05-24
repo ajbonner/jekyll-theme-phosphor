@@ -5,6 +5,7 @@
   --fg-bright: #aaffaa;
   --glow: 0 0 4px rgba(51, 255, 102, 0.55), 0 0 12px rgba(51, 255, 102, 0.25);
   --scanline-rgba: transparent;
+  --heading-scanline-rgba: var(--bg);
   --font-body: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
   --font-chrome: 'VT323', ui-monospace, Menlo, Consolas, monospace;
 }
@@ -95,12 +96,30 @@ main h3,
 main h4,
 main h5,
 main h6 {
+  position: relative;
   text-transform: uppercase;
   color: var(--fg-bright);
   text-shadow: var(--glow);
   margin: 1.6em 0 0.6em;
   line-height: 1.2;
   letter-spacing: 0.04em;
+}
+
+main h1::after,
+main h2::after,
+main h3::after,
+main h4::after,
+main h5::after,
+main h6::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 2px,
+    var(--heading-scanline-rgba) 2px 3px
+  );
 }
 
 main h1 { font-size: 2em; }
