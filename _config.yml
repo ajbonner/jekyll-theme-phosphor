@@ -1,0 +1,16 @@
+title: phosphor
+description: >-
+  A minimal Jekyll theme that renders pages as if they were on the
+  screen of a P1 green-phosphor VT100.
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+plugins:
+  - jekyll-optional-front-matter
+
+optional_front_matter:
+  remove_originals: true
