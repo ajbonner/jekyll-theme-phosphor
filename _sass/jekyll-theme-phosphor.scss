@@ -90,6 +90,36 @@ body {
   50.01%, 100% { opacity: 0; }
 }
 
+.breadcrumbs {
+  font-family: var(--font-chrome);
+  font-size: 1.25rem;
+  color: var(--fg-dim);
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--fg-dim);
+  word-break: break-all;
+}
+
+.breadcrumbs a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus {
+  color: var(--fg-bright);
+  text-decoration: underline;
+}
+
+.breadcrumbs .sep {
+  color: var(--fg-dim);
+  margin: 0 0.2em;
+}
+
+.breadcrumbs .here {
+  color: var(--fg-bright);
+}
+
 main h1,
 main h2,
 main h3,

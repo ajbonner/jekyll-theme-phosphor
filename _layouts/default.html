@@ -17,6 +17,12 @@
       <span class="banner-left">{{ site.title | default: 'phosphor' }}(7){% if page.title %} &mdash; {{ page.title }}{% endif %}</span>
       <span class="banner-right">{{ site.time | date: '%Y-%m-%d' }}</span>
     </header>
+    {% unless page.url == '/' %}
+    {% assign segs = page.url | replace: '/', ' ' | strip | split: ' ' %}
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="{{ '/' | relative_url }}">~</a>{% assign acc = '' %}{% for s in segs %}{% assign acc = acc | append: '/' | append: s %}<span class="sep">/</span>{% if forloop.last %}<span class="here">{{ s }}</span>{% else %}<a href="{{ acc | append: '/' | relative_url }}">{{ s }}</a>{% endif %}{% endfor %}
+    </nav>
+    {% endunless %}
     <main>
       {{ content }}
     </main>
